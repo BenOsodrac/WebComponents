@@ -1,15 +1,14 @@
-# Build native Web Components without using a framework
+# OutSystems UI Web Components
 
-Everyone knows it: Encapsulating and reusing UI components on the web is challenging. It is usually a copy & paste of HTML, CSS, and JavaScript, often spread over one or more files. If you forget a part, it does not look as desired, or the interaction does not work. Enough of that!
-Web Components open up new ways on the web to implement and (re-)use UI components in a standardized manner and without any framework. In this sample, i want to show the essential points to create a completely native Web Component with standards HTML Templates, Custom Elements, and Shadow DOM.
+The core concept of a Web Component is similar to that of components in frameworks such as React, Angular or Vue. It is a reusable UI building block that encapsulates all the HTML, CSS and any JavaScript-based logic required to render it. The big difference is that instead of relying on a specific JavaScript framework it leverages technologies natively provided by the browser so that your Web Components are framework agnostic. The technologies that Web Components leverage from the browser are features such as Custom Elements, Shadow DOM, ES Modules and HTML Templates.
 
-To run the sample, following the next steps.
+The Custom Element API allows you to define new HTML tags with associated templates, styling and logic. The styling can be encapsulated using the Shadow DOM which makes your component ignore any styles applied outside of it.
 
 ## Install dependencies
 Run `npm i` to install all dependencies.
 
 ## Development server
-Run `npm start` for a dev server. Navigate to http://localhost:8080/. The app will not automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to http://localhost:8080/. 
 
 ## Build
-Run `npm run build-wc:webpack` to build the web component. The build artifacts will be stored in the dist/ directory.# webcomponents
+Run `npm run build-wc:webpack` to build the web component. The build artifacts will be stored in the dist/ directory.
