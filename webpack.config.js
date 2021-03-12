@@ -2,7 +2,7 @@ module.exports = {
     
     mode: 'production',
     entry: {
-        'entry': './src/entry.js',
+        file: './src/entry.js',
     },
     output: {
         filename: 'outsystemsui.js',
@@ -15,6 +15,7 @@ module.exports = {
                     loader: 'html-loader',
                 },
             },
+            { test: /\.css$/, use: 'css-loader' },
             {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [

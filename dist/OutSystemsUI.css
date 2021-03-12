@@ -1,5 +1,4 @@
-/* OutSystems UI Design System
-https://outsystemsui.outsystems.com/StyleGuidePreview/Styles*/
+/* OutSystems UI Design System*/
 :root {
   
     /* Typography - Size */
@@ -218,12 +217,10 @@ body {
 /* Web Components customization*/
 
 /* Card */
-/* using ::part to customize the content element*/
+/* using ::part to customize the content element
 osui-card::part(content) {
-    --osui-card-content-flex: 1;
-    /* Other extra CSS affecting exclusively the content element*/
-    font-size: var(--font-size-display);
-}
+
+}*/
 
 /* CardSectioned */
 osui-card-sectioned {
@@ -236,12 +233,10 @@ osui-card-sectioned {
 
 osui-card,
 osui-card-sectioned {
-  display: block;
-  width: 400px;
+    display: inline-block;
 }
 
 osui-card-sectioned img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+    width: 100%;
+    object-fit: cover;
 }

@@ -5,15 +5,25 @@
     "start": "webpack-dev-server src/index.html",
     "build-wc": "npm run build-wc:clean && npm run build-wc:webpack",
     "build-wc:clean": "rm -rf dist && mkdir dist",
-    "build-wc:webpack": "webpack"
+    "build-wc:webpack": "webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "css-loader": "^5.0.2",
+    "@babel/core": "^7.13.10",
+    "@storybook/addon-a11y": "^6.1.21",
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/html": "^6.1.21",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.1.2",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "style-loader": "^2.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
-  }
+  },
+  "dependencies": {}
 }
