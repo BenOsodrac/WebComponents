@@ -1,5 +1,5 @@
 {
-  "name": "outsystems-ui-web-components",
+  "name": "@bcaosodrac/outsystems-ui-web-components",
   "version": "0.1.0",
   "scripts": {
     "start": "webpack-dev-server src/index.html",
