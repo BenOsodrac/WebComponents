@@ -28,7 +28,9 @@
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ssri": "^8.0.1"
+  },
   "description": "MVP",
   "main": "index.js",
   "repository": "https://github.com/BenOsodrac/WebComponents.git",
