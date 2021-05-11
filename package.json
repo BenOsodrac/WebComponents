@@ -14,9 +14,9 @@
     "@babel/core": "^7.13.10",
     "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.1.21",
-    "@storybook/html": "^6.1.21",
+    "@storybook/html": "^6.2.9",
     "auto": "^10.18.7",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.7.0",
@@ -29,7 +29,8 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "ssri": "^8.0.1"
+    "ssri": "^8.0.1",
+    "trim": "^1.0.1"
   },
   "description": "MVP",
   "main": "index.js",
