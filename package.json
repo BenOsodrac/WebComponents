@@ -29,6 +29,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "postcss": "^8.2.15",
     "ssri": "^8.0.1",
     "trim": "^1.0.1"
   },
