@@ -1,5 +1,5 @@
 module.exports = {
-    
+
     mode: 'production',
     entry: {
         file: './src/entry.js',
@@ -24,6 +24,11 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ["babel-loader"]
+            }
         ],
     },
 };

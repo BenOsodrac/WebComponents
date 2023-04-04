@@ -1,6 +1,8 @@
 // OSUICard
 export class OSUICard extends HTMLElement {
 
+    clickCallback = undefined;
+
     get padding() {
         return this.getAttribute('padding');
     }
@@ -8,15 +10,20 @@ export class OSUICard extends HTMLElement {
     get background() {
         return this.getAttribute('background');
     }
-    
+
     static get observedAttributes() {
-        return ['background','padding'];
+        return ['background', 'padding'];
     }
 
     constructor() {
         super();
 
-        var shadowRoot = this.attachShadow({mode: 'open'});
+        this.addEventListener('click', () => {
+            console.log('click');
+            this.clickCallback();
+        });
+
+        var shadowRoot = this.attachShadow({ mode: 'open' });
         shadowRoot.innerHTML = `<style>
         .card {
             background: var(--osui-card-bg);
@@ -31,8 +38,13 @@ export class OSUICard extends HTMLElement {
         <div class="card">
         <div class="card-content" part="content"><slot>Insert Your Content</slot</div>
           </div>
-        `                            
+        `
+    };
+
+    registerCallback = function (callback) {
+        this.clickCallback = callback;
     }
+
 }
 
 customElements.define('osui-card', OSUICard);
