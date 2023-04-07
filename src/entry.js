@@ -1,3 +1,3 @@
 // content
-import '/src/components/content/card.js';
+import '/src/components/Card/card.js';
 
