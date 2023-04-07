@@ -1,4 +1,4 @@
-import '/dist/OutSystemsUI.css';
+import '/src/OutSystemsUI.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
