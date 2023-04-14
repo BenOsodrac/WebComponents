@@ -1,12 +1,11 @@
 module.exports = {
-  "stories": [
-    '../src/stories/Welcome.stories.mdx',
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    '@storybook/addon-a11y'
-  ]
-}
+  "stories": ['../src/stories/Welcome.stories.mdx', "../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  "addons": ["@storybook/addon-links", "@storybook/addon-essentials", '@storybook/addon-a11y', "@storybook/addon-mdx-gfm"],
+  docs: {
+    autodocs: true
+  },
+  framework: {
+    name: "@storybook/html-webpack5",
+    options: {}
+  }
+};
