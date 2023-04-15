@@ -1,6 +1,7 @@
 const request = require('request');
 const fs = require('fs');
 
+
 const distPath = 'dist/';
 
 fs.readdir(distPath, function(err, files) {
