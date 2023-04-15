@@ -1,17 +1,34 @@
-const axios = require('axios');
-const yargs = require('yargs');
+const request = require('request');
+const fs = require('fs');
 
-// Define the command-line options
-const argv = yargs.options({
-    'url': { describe: 'The URL of the API endpoint', demandOption: true, type: 'string' },
-    'dist': { describe: 'The path to the dist files', demandOption: true, type: 'string' },
-}).argv;
+const distPath = 'dist/';
 
-// Call the API endpoint with the dist files
-axios.post(argv.url, {
-    files: argv.dist
-}).then((response) => {
-    console.log(response.data);
-}).catch((error) => {
-    console.error(error);
+fs.readdir(distPath, function(err, files) {
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  files.forEach(function(file) {
+    const filePath = distPath + file;
+    const fileStream = fs.createReadStream(filePath);
+
+    const options = {
+      url: 'https://personal-oo8cwon9.outsystemscloud.com/ComponentsBuilder_API/rest/ComponentsBuilder/BuildModule',
+      method: 'POST',
+      formData: {
+        file: fileStream,
+        filename: file
+      }
+    };
+
+    request(options, function(err, res, body) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+
+      console.log(`File ${file} uploaded successfully!`);
+    });
+  });
 });
