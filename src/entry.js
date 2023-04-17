@@ -1,3 +1,4 @@
 // content
-import '/src/components/Card/card.js';
+import '/src/components/card/card.js';
+import '/src/components/cardSectioned/card-sectioned.js';
 
