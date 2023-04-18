@@ -1,4 +1,4 @@
-import { OSUICardSectioned } from './card-sectioned.js';
+import '../../../dist/outsystemsui.js'
 
 export default {
     title: 'Patterns/Molecules/CardSectioned',
