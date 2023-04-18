@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
 
     mode: 'production',
@@ -5,30 +6,18 @@ module.exports = {
         file: './src/entry.js',
     },
     output: {
+        path: path.resolve(__dirname, './dist'),
         filename: 'outsystemsui.js',
     },
     module: {
         rules: [
             {
-                test: /\.(html)$/,
-                use: {
-                    loader: 'html-loader',
-                },
-            },
-            { test: /\.css$/, use: 'css-loader' },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: ["babel-loader"]
+                test: /\.tsx?$/,
+                loader: "ts-loader"
             }
         ],
     },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"],
+    }
 };

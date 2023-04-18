@@ -1,4 +1,4 @@
-import './card.js';
+import '../../../dist/outsystemsui.js'
 
 export default {
   title: 'Patterns/Atoms/Card',

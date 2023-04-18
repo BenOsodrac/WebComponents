@@ -1,7 +1,8 @@
-import { OSUICard } from './../card/card.js'
+import { OSUICard } from '../card/card'
 
 // OSUICardSectioned
 export class OSUICardSectioned extends OSUICard {
+    shadowRoot: any;
 
     // A getter/setter for the orientation property
     get orientation() {
