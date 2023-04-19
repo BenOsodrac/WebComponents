@@ -1,4 +1,6 @@
-import '../../../dist/outsystemsui.js'
+import '../../../dist/outsystemsui.js';
+import { expect } from '@storybook/jest';
+import { within, userEvent } from '@storybook/testing-library';
 
 export default {
   title: 'Patterns/Atoms/Card',
@@ -20,8 +22,17 @@ Basic.args = {
   text: 'Hello World!',
 };
 
+Basic.play = async ({ args, canvasElement }) => {
+  const canvas = within(canvasElement);
+  const card = await canvas.findByText(args.text);
+  await userEvent.click(card);
+  expect(card.textContent).toContain("clicked");
+};
+
 export const NoPadding = Template.bind({});
 NoPadding.args = {
   text: 'Hello World!',
   padding: '0px',
 };
+
+

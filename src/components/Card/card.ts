@@ -20,7 +20,15 @@ export class OSUICard extends HTMLElement {
 
     connectedCallback(): void {
         this.addEventListener('click', () => {
-            this._clickCallback();
+            const originalHTML = this.innerHTML;
+            this.innerHTML = 'clicked';
+            if (this._clickCallback !== undefined) {
+                this._clickCallback();
+            }
+            setTimeout(() => {
+                this.innerHTML = originalHTML;
+            }, 0);
+
         });
     }
 
