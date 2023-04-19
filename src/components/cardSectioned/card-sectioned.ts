@@ -4,7 +4,7 @@ import css from './card.scss'
 
 // OSUICardSectioned
 export class OSUICardSectioned extends OSUICard {
-    shadowRoot: any;
+    private _shadowRoot: ShadowRoot;
 
     // A getter/setter for the orientation property
     get orientation() {
@@ -24,12 +24,16 @@ export class OSUICardSectioned extends OSUICard {
         console.log(this.orientation);
     }
 
+    connectedCallback(): void {
+        this.clickCallback = undefined;
+    }
+
     constructor() {
         super();
 
         // Get extended Card element
-        var shadowRoot = this.shadowRoot;
-        var cardContent = shadowRoot.querySelector('.card-content');
+        this._shadowRoot = this.shadowRoot;
+        var cardContent = this._shadowRoot.querySelector('.card-content');
 
         // Create CSS stylesheet from scss file and append to shadowDOM
         const cardStyleSheet = document.createElement('style');
