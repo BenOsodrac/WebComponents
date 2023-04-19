@@ -19,7 +19,7 @@ const Template = ({ text, padding, backgroundColor }) => {
 
 export const Basic = Template.bind({});
 Basic.args = {
-  padding: 'var(--space-base)',
+  padding: '16px',
   text: 'Hello World!',
 };
 

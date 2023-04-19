@@ -19,13 +19,16 @@ export class OSUICard extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
+        if (newValue === 'undefined') {
+            return;
+        }
 
         switch (name) {
             case 'padding':
-                document.documentElement.style.setProperty('--osui-card-padding', newValue);
+                this.style.setProperty('--osui-card-padding', newValue);
                 break;
             case 'background':
-                document.documentElement.style.setProperty('--osui-card-bg', newValue);
+                this.style.setProperty('--osui-card-bg', newValue);
                 break;
         }
     }
