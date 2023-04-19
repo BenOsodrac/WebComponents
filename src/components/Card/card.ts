@@ -18,6 +18,12 @@ export class OSUICard extends HTMLElement {
         return ['background', 'padding'];
     }
 
+    connectedCallback(): void {
+        this.addEventListener('click', () => {
+            this._clickCallback();
+        });
+    }
+
     constructor() {
         super();
 
@@ -26,12 +32,6 @@ export class OSUICard extends HTMLElement {
         template.innerHTML = `<style>${css}</style>${html}`;
         shadowRoot.appendChild(template.content.cloneNode(true));
     };
-
-    connectedCallback(): void {
-        this.addEventListener('click', () => {
-            this._clickCallback();
-        });
-    }
 
     public registerCallback(callback): void {
         this._clickCallback = callback;

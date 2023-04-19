@@ -12,9 +12,23 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.scss$/,
+                use: [
+                    'raw-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: {
+                                includePaths: [path.resolve(__dirname, 'node_modules')]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.tsx?$/,
                 loader: "ts-loader"
-            }
+            },
         ],
     },
     resolve: {
