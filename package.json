@@ -8,7 +8,8 @@
     "build-wc:webpack": "webpack",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token ea61455665e3"
+    "chromatic": "npx chromatic --project-token ea61455665e3",
+    "api-upload": "node api-upload.js"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
