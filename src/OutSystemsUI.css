@@ -177,9 +177,7 @@
     --shadow-l: 0 6px 8px rgba(0, 0, 0, .1);
     --shadow-xl: 0 8px 10px rgba(0, 0, 0, .1);
     
-    /* Atoms */
-    /* Button */
-  
+    /* Atoms */  
     /* Card */
     --osui-card-bg: var(--color-neutral-0);
     --osui-card-border-radius: var(--border-radius-soft);

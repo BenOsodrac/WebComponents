@@ -1,10 +1,10 @@
-import '../../../dist/outsystemsui.js'
+import '../../../dist/outsystemsui.js';
 
 export default {
     title: 'Patterns/Molecules/CardSectioned',
     argTypes: {
         imagePadding: { control: { type: 'boolean' } },
-        orientation: { control: { type: 'select', options: ['vertical', 'horizontal'] } },
+        orientation: { control: 'select', options: ['vertical', 'horizontal'] },
     },
     parameters: {
         componentSubtitle: 'Groups information in a small block, organized in different sections for title, image and content that is easily noticed in the screen.',

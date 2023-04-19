@@ -1,0 +1,62 @@
+:host .card {
+    background-color: var(--osui-card-sectioned-bg);
+    border-radius: var(--osui-card-sectioned-border-radius);
+    border: var(--osui-card-sectioned-border-size) solid var(--osui-card-sectioned-border-color);
+    padding: 0;
+}
+
+:host([image-padding="true"]) .card-image {
+    padding: var(--space-base) var(--space-base) var(--space-none);
+}
+
+:host([image-padding="true"][orientation="horizontal"]) .card-image {
+    padding: var(--space-base) var(--space-none) var(--space-base) var(--space-base);
+}
+
+:host([image-padding="false"]) .card-image {
+    padding: 0;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+}
+
+:host([orientation="horizontal"]) .card-content {
+    flex-direction: row;
+}
+
+:host([orientation="horizontal"]) .card-sectioned-top {
+    padding: var(--space-base);
+}
+
+:host([orientation="vertical"]) .card-sectioned-top {
+    padding-top: var(--space-base);
+}
+
+.card-image img {
+    display: block;
+    margin: 0 auto;
+}
+
+.card-sectioned-top {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-semi-bold);
+}
+
+.card-sectioned-content {
+    flex: 1;
+    padding: var(--space-base) var(--space-none);
+}
+
+.card-sectioned-top {
+    padding: var(--space-base);
+}

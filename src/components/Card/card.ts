@@ -1,7 +1,10 @@
+import { css } from './css';
+import { html } from './html';
+
 // OSUICard
 export class OSUICard extends HTMLElement {
 
-    clickCallback = undefined;
+    private _clickCallback: () => void;
 
     get padding() {
         return this.getAttribute('padding');
@@ -15,36 +18,49 @@ export class OSUICard extends HTMLElement {
         return ['background', 'padding'];
     }
 
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (newValue === 'undefined') {
+            return;
+        }
+
+        switch (name) {
+            case 'padding':
+                this.style.setProperty('--osui-card-padding', newValue);
+                break;
+            case 'background':
+                this.style.setProperty('--osui-card-bg', newValue);
+                break;
+        }
+    }
+
+    connectedCallback(): void {
+        this.addEventListener('click', () => {
+            const originalHTML = this.innerHTML;
+            this.innerHTML = 'clicked';
+            if (this._clickCallback !== undefined) {
+                this._clickCallback();
+            }
+            setTimeout(() => {
+                this.innerHTML = originalHTML;
+            }, 0);
+
+        });
+    }
+
     constructor() {
         super();
 
-        this.addEventListener('click', () => {
-            console.log('click');
-            this.clickCallback();
-        });
-
-        var shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.innerHTML = `<style>
-        .card {
-            background: var(--osui-card-bg);
-            background: ${this.background};
-            border-radius: var(--osui-card-border-radius);
-            border: var(--osui-card-border-size) solid var(--osui-card-border-color);
-            padding: var(--osui-card-padding);
-            padding: ${this.padding};
-        }
-
-        </style>
-        <div class="card">
-        <div class="card-content" part="content"><slot>Insert Your Content</slot</div>
-          </div>
-        `
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+        const template = document.createElement('template');
+        template.innerHTML = `<style>${css}</style>${html}`;
+        shadowRoot.appendChild(template.content.cloneNode(true));
     };
 
-    registerCallback = function (callback) {
-        this.clickCallback = callback;
+    public registerCallback(callback): void {
+        this._clickCallback = callback;
     }
 
 }
 
 customElements.define('osui-card', OSUICard);
+

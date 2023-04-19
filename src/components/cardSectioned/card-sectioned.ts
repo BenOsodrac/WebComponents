@@ -1,4 +1,6 @@
-import { OSUICard } from '../card/card'
+import { OSUICard } from '../card/card';
+//@ts-ignore
+import css from './card.scss'
 
 // OSUICardSectioned
 export class OSUICardSectioned extends OSUICard {
@@ -18,81 +20,24 @@ export class OSUICardSectioned extends OSUICard {
     }
 
     attributeChangedCallback() {
-        //On attributes change
+        // On attributes change
         console.log(this.orientation);
     }
 
     constructor() {
         super();
 
+        // Get extended Card element
         var shadowRoot = this.shadowRoot;
         var cardContent = shadowRoot.querySelector('.card-content');
-        cardContent.innerHTML = `<style>
-        
-        :host .card {
-            background-color: var(--osui-card-sectioned-bg);
-            border-radius: var(--osui-card-sectioned-border-radius);
-            border: var(--osui-card-sectioned-border-size) solid var(--osui-card-sectioned-border-color);
-            padding: 0;
-        }
 
-        :host([image-padding="true"]) .card-image {
-            padding: var(--space-base) var(--space-base) var(--space-none);
-        }
+        // Create CSS stylesheet from scss file and append to shadowDOM
+        const cardStyleSheet = document.createElement('style');
+        cardStyleSheet.appendChild(document.createTextNode(css));
+        this.shadowRoot.appendChild(cardStyleSheet);
 
-        :host([image-padding="true"][orientation="horizontal"]) .card-image {
-            padding: var(--space-base) var(--space-none) var(--space-base) var(--space-base);
-        }
-
-        :host([image-padding="false"]) .card-image {
-            padding: 0;
-        }
-
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 0;
-        }
-
-        :host([orientation="horizontal"]) .card-content {
-            flex-direction: row;
-        }
-
-        :host([orientation="horizontal"]) .card-sectioned-top {
-            padding: var(--space-base);
-        }
-
-        :host([orientation="vertical"]) .card-sectioned-top {
-            padding-top: var(--space-base);
-        }
-
-        .card-image img {
-            display: block;
-            margin: 0 auto;
-        }
-
-        .card-sectioned-top {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-        }
-
-        .card-title {
-            font-size: var(--font-size-h4);
-            font-weight: var(--font-semi-bold);
-        }
-
-        .card-sectioned-content {
-            flex: 1;
-            padding: var(--space-base) var(--space-none);
-        }
-
-        .card-sectioned-top {
-            padding: var(--space-base);
-        }
-
-        </style>
+        // Add cardSectioned html
+        cardContent.innerHTML = `
         <div class="card-image" part="image"><slot name="image">Insert Your Image</slot></div>
         <div class="card-sectioned-top">
             <div class="card-title" part="title"><slot name="title">Insert Your Title</slot></div>
