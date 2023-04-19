@@ -47,9 +47,13 @@
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.11.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "postcss": "^8.2.15",
+    "request": "^2.88.2",
     "ssri": "^8.0.1",
-    "trim": "^1.0.1"
+    "trim": "^1.0.1",
+    "uuid": "^9.0.0"
   },
   "description": "MVP",
   "main": "index.js",
