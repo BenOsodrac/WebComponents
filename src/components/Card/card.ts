@@ -18,6 +18,18 @@ export class OSUICard extends HTMLElement {
         return ['background', 'padding'];
     }
 
+    attributeChangedCallback(name, oldValue, newValue) {
+
+        switch (name) {
+            case 'padding':
+                document.documentElement.style.setProperty('--osui-card-padding', newValue);
+                break;
+            case 'background':
+                document.documentElement.style.setProperty('--osui-card-bg', newValue);
+                break;
+        }
+    }
+
     connectedCallback(): void {
         this.addEventListener('click', () => {
             const originalHTML = this.innerHTML;
