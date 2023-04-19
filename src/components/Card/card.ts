@@ -4,7 +4,7 @@ import { html } from './html';
 // OSUICard
 export class OSUICard extends HTMLElement {
 
-    private _clickCallback: () => void;
+    protected clickCallback: () => void;
 
     get padding() {
         return this.getAttribute('padding');
@@ -37,8 +37,8 @@ export class OSUICard extends HTMLElement {
         this.addEventListener('click', () => {
             const originalHTML = this.innerHTML;
             this.innerHTML = 'clicked';
-            if (this._clickCallback !== undefined) {
-                this._clickCallback();
+            if (this.clickCallback !== undefined) {
+                this.clickCallback();
             }
             setTimeout(() => {
                 this.innerHTML = originalHTML;
@@ -57,7 +57,7 @@ export class OSUICard extends HTMLElement {
     };
 
     public registerCallback(callback): void {
-        this._clickCallback = callback;
+        this.clickCallback = callback;
     }
 
 }

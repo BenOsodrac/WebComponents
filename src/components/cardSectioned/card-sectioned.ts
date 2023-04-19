@@ -24,6 +24,10 @@ export class OSUICardSectioned extends OSUICard {
         console.log(this.orientation);
     }
 
+    connectedCallback(): void {
+        this.clickCallback = undefined;
+    }
+
     constructor() {
         super();
 
