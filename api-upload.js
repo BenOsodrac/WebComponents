@@ -14,7 +14,7 @@ fs.readdir(distPath, function(err, files) {
   }
 
 
-  console.log('Files in ' + distPath + ' for the requestId =' + guid + ':');
+  console.log('Files in ' + distPath + ' for the requestId = ' + guid + ':');
 
   files.forEach(function(file) {
 
